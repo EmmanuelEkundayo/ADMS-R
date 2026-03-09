@@ -12,6 +12,9 @@ class User(Base):
     hashed_password = Column(String)
     role = Column(String) # employee, manager, hr_admin
     department = Column(String)
+    age = Column(Integer, nullable=True)
+    gender = Column(String, nullable=True)
+    ethnicity = Column(String, nullable=True)
     is_active = Column(Boolean, default=True)
 
     kpis = relationship("KPI", back_populates="owner")
@@ -57,6 +60,7 @@ class ExtensionSession(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
     url = Column(String)
     title = Column(String)
+    platform = Column(String, nullable=True)
     duration_minutes = Column(Float)
     interaction_count = Column(Integer)
     timestamp = Column(DateTime)

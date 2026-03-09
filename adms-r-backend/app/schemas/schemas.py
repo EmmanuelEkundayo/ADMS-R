@@ -7,6 +7,9 @@ class UserBase(BaseModel):
     full_name: str
     role: str
     department: str
+    age: Optional[int] = None
+    gender: Optional[str] = None
+    ethnicity: Optional[str] = None
 
 class UserCreate(UserBase):
     password: str
@@ -60,6 +63,7 @@ class Feedback(FeedbackCreate):
 class ExtensionSessionCreate(BaseModel):
     url: str
     title: str
+    platform: Optional[str] = None
     duration_minutes: float
     interaction_count: int
     timestamp: str
